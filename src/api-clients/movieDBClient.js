@@ -1,4 +1,4 @@
-const searchMovies = (searchTerm) => {
+export const searchByTitle = (searchTerm) => {
   if (!searchTerm) {
     return [];
   }
@@ -10,5 +10,3 @@ const searchMovies = (searchTerm) => {
     },
   ];
 };
-
-export default searchMovies;

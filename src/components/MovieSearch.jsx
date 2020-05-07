@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import searchMovies from "../api-clients/movieDB";
+import { searchByTitle } from "../api-clients/movieDBClient";
 
 const MovieSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -8,7 +8,7 @@ const MovieSearch = () => {
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
-      const apiResults = searchMovies(searchTerm);
+      const apiResults = searchByTitle(searchTerm);
       setResults(apiResults);
     }, typeDelay);
     return () => clearTimeout(timeOutId);
@@ -16,12 +16,10 @@ const MovieSearch = () => {
 
   return (
     <>
-      <form>
-        <input
-          type="text"
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-      </form>
+      <input
+        type="text"
+        onChange={(event) => setSearchTerm(event.target.value)}
+      />
       <div>
         {results.map((movie) => (
           <p key={movie.id}>{movie.title}</p>
