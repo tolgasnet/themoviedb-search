@@ -20,6 +20,12 @@ module.exports = {
             loader: "babel-loader",
             options: {},
           },
+          {
+            loader: "eslint-loader",
+            options: {
+              fix: true,
+            },
+          },
         ],
       },
     ],
