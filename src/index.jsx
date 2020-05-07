@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import MovieSearch from "./components/MovieSearch";
 
 class App extends React.Component {
   render() {
-    return <input type="text" />;
+    return <MovieSearch />;
   }
 }
 
