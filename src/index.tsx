@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import MovieSearch from "./components/MovieSearch";
 
-const App: FunctionComponent = () => {
+const App: React.FC = () => {
   return <MovieSearch />;
 };
 

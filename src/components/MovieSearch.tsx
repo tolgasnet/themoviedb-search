@@ -1,11 +1,11 @@
-import React, { useState, FC } from "react";
+import React, { useState } from "react";
 import { searchByTitle } from "../api-clients/movieDBClient";
 import Message from "./Message";
-import { movie } from "../models/movie";
+import { Movie } from "../models/movie";
 
-const MovieSearch: FC<{}> = () => {
+const MovieSearch: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [results, setResults] = useState([] as movie[]);
+  const [results, setResults] = useState([] as Movie[]);
   const [message, setMessage] = useState("");
 
   const onTextChange = (e: React.ChangeEvent<HTMLInputElement>): void => {

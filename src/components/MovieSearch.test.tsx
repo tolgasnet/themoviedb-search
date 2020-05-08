@@ -1,5 +1,5 @@
 import { render, fireEvent } from "@testing-library/react";
-import * as React from "react";
+import React from "react";
 import MovieSearch from "./MovieSearch";
 
 describe("movie search test", () => {
