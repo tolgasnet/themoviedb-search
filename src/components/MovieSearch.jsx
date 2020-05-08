@@ -20,7 +20,9 @@ const MovieSearch = () => {
       <input type="button" value="Search" onClick={onClick} />
       <div>
         {results.map((movie) => (
-          <p key={movie.id}>{movie.title}</p>
+          <p key={movie.id} data-testid={`result-${movie.id}`}>
+            {movie.title}
+          </p>
         ))}
       </div>
     </>
