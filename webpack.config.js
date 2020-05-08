@@ -1,23 +1,24 @@
-var path = require("path");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+/* eslint-disable */
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index_bundle.js",
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: "ts-loader",
             options: {},
           },
           {
@@ -37,3 +38,4 @@ module.exports = {
     }),
   ],
 };
+/* eslint-enable */

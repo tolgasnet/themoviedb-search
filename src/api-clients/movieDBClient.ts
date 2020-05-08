@@ -1,4 +1,6 @@
-export const searchByTitle = (searchTerm) => {
+import { movie } from "../models/movie";
+
+export const searchByTitle = (searchTerm: string): movie[] => {
   if (!searchTerm) {
     return [];
   }

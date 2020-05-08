@@ -1,6 +1,11 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["tailored-tunes", "plugin:prettier/recommended"],
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -29,5 +34,5 @@
     "react/jsx-uses-react": "error",
     "prettier/prettier": "error"
   },
-  "plugins": ["react", "jest", "prettier"]
+  "plugins": ["react", "jest", "prettier", "@typescript-eslint"]
 }
