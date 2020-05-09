@@ -1,23 +1,29 @@
-import { render, fireEvent } from "@testing-library/react";
-import React from "react";
-import MovieSearch from "./MovieSearch";
+import MovieSearchComponent from "./MovieSearch.testhelper";
 
 describe("movie search test", () => {
-  it("displays no results initially", async () => {
-    const { queryByTestId } = render(<MovieSearch />);
+  let component: MovieSearchComponent;
 
-    expect(queryByTestId(/result-/)).toBeFalsy();
+  beforeEach(() => {
+    component = new MovieSearchComponent();
+  });
+
+  it("displays no results initially", async () => {
+    component.expectNoResults();
+  });
+
+  it("display no results when keyword is empty", () => {
+    component.setSearchText("");
+    component.clickSearchButton();
+
+    component.expectNoResults();
   });
 
   it("displays search results", async () => {
-    const { getByRole, getAllByTestId } = render(<MovieSearch />);
+    component.setSearchText("test-movie");
+    component.clickSearchButton();
 
-    fireEvent.change(getByRole("textbox"), { target: { value: "test-movie" } });
-    fireEvent.click(getByRole("button"));
-
-    const results = getAllByTestId(/result-/g);
-
-    expect(results).toHaveLength(1);
-    expect(results[0].textContent).toBe("test-movie-1");
+    component.expectResults(1, (results) =>
+      expect(results[0].textContent).toBe("test-movie-1")
+    );
   });
 });
