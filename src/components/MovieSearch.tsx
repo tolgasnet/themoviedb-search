@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { searchByTitle } from "../api-clients/movieDBClient";
+import { searchByTitleAsync } from "../api-clients/movieDBClient";
 import Message from "./Message";
 import { Movie } from "../models/movie";
 
@@ -13,9 +13,9 @@ const MovieSearch: React.FC = () => {
     setSearchTerm(value);
   };
 
-  const onSearchClick = (): void => {
+  const onSearchClickAsync = async (): Promise<void> => {
     try {
-      const apiResults = searchByTitle(searchTerm);
+      const apiResults = await searchByTitleAsync(searchTerm);
       setMessage("Results:");
       setResults(apiResults);
     } catch (err) {
@@ -26,7 +26,13 @@ const MovieSearch: React.FC = () => {
   return (
     <>
       <input type="text" onChange={onTextChange} />
-      <input type="button" value="Search" onClick={onSearchClick} />
+      <input
+        type="button"
+        value="Search"
+        onClick={async (): Promise<void> => {
+          await onSearchClickAsync();
+        }}
+      />
       <Message text={message} />
       <div>
         {results.map((movie) => (
