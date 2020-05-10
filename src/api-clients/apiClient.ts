@@ -5,7 +5,9 @@ export const get = async (url: string): Promise<unknown> => {
 
   const json = await response.json();
   if (!response.ok) {
-    throw `Response code was NOT 200! Got ${response.status} instead.`;
+    throw new Error(
+      `Response code was NOT 200! Got ${response.status} instead.`
+    );
   }
 
   return json;

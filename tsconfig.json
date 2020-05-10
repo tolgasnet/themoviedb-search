@@ -10,8 +10,8 @@
     "moduleResolution": "node",
     "target": "esnext", // specify ECMAScript target version
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
-    "noImplicitAny": true, // disallow implicit any type,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "strict": true
   },
   "include": ["./src/"],
   "exclude": ["node_modules"]

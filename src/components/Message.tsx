@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { FunctionComponent } from "react";
 
 interface MessageProps {
   text: string;
 }
 
-const Message: FC<MessageProps> = ({ text }) => {
-  if (!text) return <></>;
+const Message: FunctionComponent<MessageProps> = ({ text }) => {
+  if (!text) return null;
   return <p>{text}</p>;
 };
 

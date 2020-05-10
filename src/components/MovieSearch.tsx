@@ -6,7 +6,7 @@ import { getLogger } from "../logging";
 
 const log = getLogger("moviesearch");
 
-const MovieSearch: React.FC = () => {
+const MovieSearch: React.FunctionComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([] as Movie[]);
   const [message, setMessage] = useState("");
@@ -34,8 +34,8 @@ const MovieSearch: React.FC = () => {
       <input
         type="button"
         value="Search"
-        onClick={async (): Promise<void> => {
-          await onSearchClickAsync();
+        onClick={(): void => {
+          onSearchClickAsync();
         }}
       />
       <Message text={message} />
