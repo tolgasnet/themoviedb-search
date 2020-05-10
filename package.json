@@ -1,8 +1,8 @@
 {
-  "name": "dazn",
+  "name": "themoviedb-search",
   "version": "1.0.0",
   "main": "index.tsx",
-  "author": "Tolga Sofuoglu <tolgasofuoglu@gmail.com>",
+  "author": "Tolga Sofuoglu",
   "license": "UNLICENSED",
   "scripts": {
     "build": "webpack",

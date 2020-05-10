@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import { MovieApiResponse } from "../models/movie";
 
-export const getMockResults = (): MovieApiResponse => {
+export const mockSuccess = (): MovieApiResponse => {
   return {
     results: [
       {

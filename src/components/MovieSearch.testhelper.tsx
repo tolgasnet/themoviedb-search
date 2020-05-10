@@ -45,4 +45,10 @@ export default class MovieSearchComponent {
     expect(results).toHaveLength(length);
     assert(results);
   }
+
+  async expectText(matcher: RegExp): Promise<void> {
+    return await waitFor(() => {
+      expect(this.component.queryByText(matcher)).toBeTruthy();
+    });
+  }
 }
