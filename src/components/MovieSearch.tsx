@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { searchByTitleAsync } from "../api-clients/movieDBClient";
 import Message from "./Message";
 import { Movie } from "../models/movie";
+import { getLogger } from "../logging";
+
+const log = getLogger("moviesearch");
 
 const MovieSearch: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,10 +19,12 @@ const MovieSearch: React.FC = () => {
   const onSearchClickAsync = async (): Promise<void> => {
     try {
       const apiResults = await searchByTitleAsync(searchTerm);
-      setMessage("Results:");
+
+      log("Searched with <%s>, got %d results", searchTerm, apiResults.length);
       setResults(apiResults);
     } catch (err) {
-      setMessage(err.message);
+      log(`${err.message}`);
+      setMessage("Something went wrong, please try again later.");
     }
   };
 
