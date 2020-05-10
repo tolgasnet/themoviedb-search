@@ -1,9 +1,9 @@
 import MovieSearchComponent from "./MovieSearch.testhelper";
-import { Movie } from "../models/movie";
-import { getMockResults } from "../api-clients/movieDBClient.mock";
+import { MovieApiResponse } from "../models/movie";
+import { getMockResults } from "../api-clients/movieClient.mock";
 
-jest.mock("../api-clients/movieDBClient", () => ({
-  searchByTitleAsync: (): Movie[] => getMockResults(),
+jest.mock("../api-clients/apiClient", () => ({
+  get: (): MovieApiResponse => getMockResults(),
 }));
 
 describe("movie search test", () => {

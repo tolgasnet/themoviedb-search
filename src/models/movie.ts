@@ -3,6 +3,10 @@ export interface Movie {
   title: string;
 }
 
+export interface MovieApiResponse {
+  results: MovieApiResult[];
+}
+
 export interface MovieApiResult {
   id: number;
   title: string;

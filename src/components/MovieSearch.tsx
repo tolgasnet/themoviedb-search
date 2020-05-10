@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { searchByTitleAsync } from "../api-clients/movieDBClient";
+import { searchByTitleAsync } from "../api-clients/movieClient";
 import Message from "./Message";
 import { Movie } from "../models/movie";
 import { getLogger } from "../logging";
